@@ -10,10 +10,6 @@ import { useEffect } from 'react';
  */
 export default function useCheck(checkFunction, checkedArg, setIsState) {
   useEffect(() => {
-    if (checkFunction(checkedArg) === true) {
-      setIsState(true);
-    } else if (checkFunction(checkedArg) === false) {
-      setIsState(false);
-    }
+    setIsState(checkFunction(checkedArg));
   }, [checkFunction, checkedArg, setIsState]);
 }
