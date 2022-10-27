@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import InputGroup from '../inputGroup/InputGroup';
-import useCheck from '../../hooks/useCheck';
-import { postSignup } from '../../api/axiosSignup';
-import { checkEmail, checkPassword } from '../../function/checkSignup';
+import InputGroup from './InputGroup';
+import useCheck from '../hooks/useCheck';
+import { postSignup } from '../api/axiosSignup';
+import { checkEmail, checkPassword } from '../function/checkSignup';
 
 function Signup() {
   const SIGNUP_URL = `https://pre-onboarding-selection-task.shop/auth/signup`;

@@ -1,12 +1,12 @@
 import React from 'react';
 
-const InputGroup = ({
+function InputGroup({
   type = 'text',
   placeholder = '',
   value,
   setValue,
   setIsError = Boolean,
-}) => {
+}) {
   return (
     <div>
       <input
@@ -18,6 +18,6 @@ const InputGroup = ({
       />
     </div>
   );
-};
+}
 
 export default InputGroup;

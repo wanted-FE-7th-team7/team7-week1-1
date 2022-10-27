@@ -1,31 +1,31 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Todo from '../components/Todo';
 import styled from 'styled-components';
-import Login from '../../components/login/Login';
 
-function LoginPage() {
+function TodoPage() {
   const isLogin = Boolean(localStorage.getItem('token'));
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (isLogin) {
-      navigate('/todo');
+    if (!isLogin) {
+      navigate('/');
     }
   }, [isLogin, navigate]);
 
   return (
-    <LoginLayout>
-      <Login />
-    </LoginLayout>
+    <TodoLayout>
+      <Todo />
+    </TodoLayout>
   );
 }
 
-const LoginLayout = styled.div`
+const TodoLayout = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 `;
 
-export default LoginPage;
+export default TodoPage;

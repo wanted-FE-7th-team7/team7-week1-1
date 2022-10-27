@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import InputGroup from '../inputGroup/InputGroup';
-import { postTodo, getTodos } from '../../api/axiosTodo';
+import InputGroup from './InputGroup';
+import { postTodo, getTodos } from '../api/axiosTodo';
 import TodoList from './TodoList';
 
 function Todo() {
