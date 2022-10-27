@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import InputGroup from './InputGroup';
-import { deleteTodo, postTodoCheck, putModify } from '../api/axiosTodo';
+import { deleteTodo, postTodoCheck, putModify } from '../apis/todo';
 import {
   BsCheckCircle,
   BsCircle,

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { postTodo, getTodos } from '../api/axiosTodo';
+import { postTodo, getTodos } from '../apis/todo';
 import { TodoList, InputGroup } from './';
 
 export function Todo() {

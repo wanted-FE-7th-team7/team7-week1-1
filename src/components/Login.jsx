@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import InputGroup from './InputGroup';
 import { Link } from 'react-router-dom';
-import { postLogin } from '../api/axiosLogin';
+import { postLogin } from '../apis/login';
 import useCheck from '../hooks/useCheck';
-import { checkEmail, checkPassword } from '../function/checkSignup';
+import { checkEmail, checkPassword } from '../functions/checkSignup';
 
 export function Login() {
   const LOGIN_URL = `https://pre-onboarding-selection-task.shop/auth/signin`;
