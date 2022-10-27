@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { InputGroup } from './';
 import { Link } from 'react-router-dom';
-import { postLogin } from '../apis/login';
 import useCheck from '../hooks/useCheck';
 import { checkEmail, checkPassword } from '../utils/checkSignup';
+import InputGroup from './InputGroup';
+import { postLogin } from '../apis/login';
 
-export function Login() {
+function Login() {
   const LOGIN_URL = `/auth/signin`;
 
   const [email, setEmail] = useState('');
@@ -91,6 +91,8 @@ export function Login() {
     </LoginFrame>
   );
 }
+
+export default Login;
 
 /** div - 로그인 프레임 */
 const LoginFrame = styled.div`

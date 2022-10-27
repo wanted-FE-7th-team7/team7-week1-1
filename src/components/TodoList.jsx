@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { InputGroup } from './';
 import { deleteTodo, postTodoCheck, putModify } from '../apis/todo';
 import {
   BsCheckCircle,
@@ -10,8 +9,9 @@ import {
   BsCheckLg,
   BsXLg,
 } from 'react-icons/bs';
+import InputGroup from './InputGroup';
 
-export function TodoList({ datas, setDatas }) {
+function TodoList({ datas, setDatas }) {
   const [isModifying, setIsModifying] = useState();
   const [modifyTodo, setModifyTodo] = useState('');
 
@@ -99,6 +99,8 @@ export function TodoList({ datas, setDatas }) {
     </TodoListContainer>
   );
 }
+
+export default TodoList;
 
 const TodoListContainer = styled.div`
   width: 500px;

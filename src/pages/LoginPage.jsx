@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { Login } from '../components';
+import Login from '../components/Login';
 
-export function LoginPage() {
+function LoginPage() {
   const isLogin = Boolean(localStorage.getItem('token'));
   const navigate = useNavigate();
 
@@ -19,6 +19,8 @@ export function LoginPage() {
     </LoginLayout>
   );
 }
+
+export default LoginPage;
 
 const LoginLayout = styled.div`
   display: flex;

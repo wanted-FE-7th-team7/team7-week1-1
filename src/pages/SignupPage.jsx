@@ -1,14 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Signup } from '../components';
+import Signup from '../components/Signup';
 
-export function SignUpPage() {
+function SignUpPage() {
   return (
     <SignUpLayout>
       <Signup />
     </SignUpLayout>
   );
 }
+
+export default SignUpPage;
 
 const SignUpLayout = styled.div`
   display: flex;

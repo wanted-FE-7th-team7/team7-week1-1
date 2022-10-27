@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { InputGroup } from './';
 import useCheck from '../hooks/useCheck';
 import { postSignup } from '../apis/signup';
 import { checkEmail, checkPassword } from '../utils/checkSignup';
+import InputGroup from './InputGroup';
 
-export function Signup() {
+function Signup() {
   const SIGNUP_URL = `/auth/signup`;
 
   const [email, setEmail] = useState('');
@@ -77,6 +77,8 @@ export function Signup() {
     </SignupFrame>
   );
 }
+
+export default Signup;
 
 /** div - 회원가입 프레임 */
 const SignupFrame = styled.div`
