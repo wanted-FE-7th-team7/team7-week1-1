@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import InputGroup from './InputGroup';
+import { InputGroup } from './';
 import { deleteTodo, postTodoCheck, putModify } from '../apis/todo';
 import {
   BsCheckCircle,

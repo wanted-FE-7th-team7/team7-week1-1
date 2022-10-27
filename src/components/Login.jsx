@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import InputGroup from './InputGroup';
+import { InputGroup } from './';
 import { Link } from 'react-router-dom';
 import { postLogin } from '../apis/login';
 import useCheck from '../hooks/useCheck';
