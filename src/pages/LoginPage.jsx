@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import Login from '../components/Login';
+import { Login } from '../components';
 
-function LoginPage() {
+export function LoginPage() {
   const isLogin = Boolean(localStorage.getItem('token'));
   const navigate = useNavigate();
 
@@ -27,5 +27,3 @@ const LoginLayout = styled.div`
   width: 100%;
   height: 100vh;
 `;
-
-export default LoginPage;

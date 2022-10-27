@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import InputGroup from './InputGroup';
 import { postTodo, getTodos } from '../api/axiosTodo';
-import TodoList from './TodoList';
+import { TodoList, InputGroup } from './';
 
-function Todo() {
+export function Todo() {
   const [todo, setTodo] = useState('');
   const [datas, setDatas] = useState([]);
 
@@ -93,5 +92,3 @@ const TodoForm = styled.form`
     height: 45px;
   }
 `;
-
-export default Todo;

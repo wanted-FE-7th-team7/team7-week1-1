@@ -6,7 +6,7 @@ import { postLogin } from '../api/axiosLogin';
 import useCheck from '../hooks/useCheck';
 import { checkEmail, checkPassword } from '../function/checkSignup';
 
-function Login() {
+export function Login() {
   const LOGIN_URL = `https://pre-onboarding-selection-task.shop/auth/signin`;
 
   const [email, setEmail] = useState('');
@@ -186,5 +186,3 @@ const ContentCheck = styled.small`
   color: red;
   opacity: 0.8;
 `;
-
-export default Login;

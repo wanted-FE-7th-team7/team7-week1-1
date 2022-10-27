@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import InputGroup from './InputGroup';
+import { InputGroup } from './';
 import useCheck from '../hooks/useCheck';
 import { postSignup } from '../api/axiosSignup';
 import { checkEmail, checkPassword } from '../function/checkSignup';
 
-function Signup() {
+export function Signup() {
   const SIGNUP_URL = `https://pre-onboarding-selection-task.shop/auth/signup`;
 
   const [email, setEmail] = useState('');
@@ -218,5 +218,3 @@ const LoginContainer = styled.div`
     color: gray;
   }
 `;
-
-export default Signup;

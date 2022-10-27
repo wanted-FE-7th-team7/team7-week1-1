@@ -11,7 +11,7 @@ import {
   BsXLg,
 } from 'react-icons/bs';
 
-function TodoList({ datas, setDatas }) {
+export function TodoList({ datas, setDatas }) {
   const [isModifying, setIsModifying] = useState();
   const [modifyTodo, setModifyTodo] = useState('');
 
@@ -194,5 +194,3 @@ const TodoListContainer = styled.div`
     color: red;
   }
 `;
-
-export default TodoList;
