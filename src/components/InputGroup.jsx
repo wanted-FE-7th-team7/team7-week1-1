@@ -14,7 +14,7 @@ export function InputGroup({
         placeholder={placeholder}
         value={value}
         onChange={e => setValue(e.target.value)}
-        onClick={e => setIsError(false)}
+        onClick={() => setIsError(false)}
       />
     </div>
   );
