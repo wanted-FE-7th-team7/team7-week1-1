@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function InputGroup({
+function InputGroup({
   type = 'text',
   placeholder = '',
   value,
@@ -19,3 +19,5 @@ export function InputGroup({
     </div>
   );
 }
+
+export default InputGroup;

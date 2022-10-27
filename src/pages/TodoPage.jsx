@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { Todo } from '../components';
+import Todo from '../components/Todo';
 
-export function TodoPage() {
+function TodoPage() {
   const isLogin = Boolean(localStorage.getItem('token'));
   const navigate = useNavigate();
 
@@ -19,6 +19,8 @@ export function TodoPage() {
     </TodoLayout>
   );
 }
+
+export default TodoPage;
 
 const TodoLayout = styled.div`
   display: flex;

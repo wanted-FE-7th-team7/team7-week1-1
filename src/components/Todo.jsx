@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { postTodo, getTodos } from '../apis/todo';
-import { TodoList, InputGroup } from './';
+import InputGroup from './InputGroup';
+import TodoList from './TodoList';
 
-export function Todo() {
+function Todo() {
   const [todo, setTodo] = useState('');
   const [datas, setDatas] = useState([]);
 
@@ -43,6 +44,8 @@ export function Todo() {
     </TodoFrame>
   );
 }
+
+export default Todo;
 
 /** div -  Todo 프레임 */
 const TodoFrame = styled.div`

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { InputGroup } from './';
 import useCheck from '../hooks/useCheck';
 import { postSignup } from '../apis/signup';
 import { checkEmail, checkPassword } from '../utils/checkSignup';
+import InputGroup from './InputGroup';
 
-export function Signup() {
+function Signup() {
   const SIGNUP_URL = `/auth/signup`;
 
   const [email, setEmail] = useState('');
@@ -38,12 +38,14 @@ export function Signup() {
           setValue={setEmail}
           setIsError={setIsError}
         />
-        {isError === true ? (
+        {isError ? (
           <ContentCheck>중복된 계정입니다.</ContentCheck>
-        ) : isEmail === true ? null : (
-          <ContentCheck>
-            올바른 형식의 이메일을 입력해주세요(@ 필수 포함)
-          </ContentCheck>
+        ) : (
+          !isEmail && (
+            <ContentCheck>
+              올바른 형식의 이메일을 입력해주세요(@ 필수 포함)
+            </ContentCheck>
+          )
         )}
 
         <InputGroup
@@ -52,19 +54,18 @@ export function Signup() {
           setValue={setPassword}
           type="password"
         />
-        {isPassword === true ? null : (
+        {!isPassword && (
           <ContentCheck>8자 이상의 비밀번호를 입력해주세요</ContentCheck>
         )}
 
-        {isEmail && isPassword ? (
-          <button type="submit" className="allow-signup">
-            가입하기
-          </button>
-        ) : (
-          <button type="button" className="block-signup">
-            가입하기
-          </button>
-        )}
+        <button
+          type="submit"
+          className={isEmail && isPassword ? 'allow-signup' : 'block-signup'}
+          disabled={!(isEmail && isPassword)}
+        >
+          가입하기
+        </button>
+
         <LoginContainer>
           <div>계정이 있으신가요?</div>
           <div>
@@ -77,6 +78,8 @@ export function Signup() {
     </SignupFrame>
   );
 }
+
+export default Signup;
 
 /** div - 회원가입 프레임 */
 const SignupFrame = styled.div`

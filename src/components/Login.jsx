@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { InputGroup } from './';
 import { Link } from 'react-router-dom';
-import { postLogin } from '../apis/login';
 import useCheck from '../hooks/useCheck';
 import { checkEmail, checkPassword } from '../utils/checkSignup';
+import InputGroup from './InputGroup';
+import { postLogin } from '../apis/login';
 
-export function Login() {
+function Login() {
   const LOGIN_URL = `/auth/signin`;
 
   const [email, setEmail] = useState('');
@@ -15,7 +15,7 @@ export function Login() {
 
   // 유효성 검사 state
   const [isEmail, setIsEmail] = useState(false);
-  const [ispassword, setIsPassword] = useState(false);
+  const [isPassword, setIsPassword] = useState(false);
 
   // 커스텀 훅
   useCheck(checkEmail, email, setIsEmail);
@@ -37,15 +37,11 @@ export function Login() {
           setValue={setEmail}
           setIsError={setIsError}
         />
-
-        {isEmail === true ? (
-          <div />
-        ) : (
+        {!isEmail && (
           <ContentCheck>
             올바른 형식의 이메일을 입력해주세요(@ 필수 포함)
           </ContentCheck>
         )}
-
         <InputGroup
           placeholder="비밀번호"
           value={password}
@@ -53,31 +49,25 @@ export function Login() {
           type="password"
           setIsError={setIsError}
         />
-
-        {ispassword === true ? (
-          <div />
-        ) : (
+        {!isPassword && (
           <ContentCheck>8자 이상의 비밀번호를 입력해주세요</ContentCheck>
         )}
-
-        {isError ? (
+        {isError && (
           <>
             <ContentCheck>
               이메일 또는 비밀번호를 잘못 입력하셨습니다.
             </ContentCheck>
             <ContentCheck>입력하신 내용을 다시 확인해주세요.</ContentCheck>
           </>
-        ) : null}
-
-        {isEmail && ispassword ? (
-          <button type="submit" className="allow-button">
-            로그인
-          </button>
-        ) : (
-          <button type="button" className="block-button">
-            로그인
-          </button>
         )}
+
+        <button
+          type="submit"
+          className={isEmail && isPassword ? 'allow-button' : 'block-button'}
+          disabled={!(isEmail && isPassword)}
+        >
+          로그인
+        </button>
 
         <SignupContainer>
           <div>계정이 없으신가요?</div>
@@ -91,6 +81,8 @@ export function Login() {
     </LoginFrame>
   );
 }
+
+export default Login;
 
 /** div - 로그인 프레임 */
 const LoginFrame = styled.div`
