@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { InputGroup } from './';
 import useCheck from '../hooks/useCheck';
 import { postSignup } from '../apis/signup';
-import { checkEmail, checkPassword } from '../functions/checkSignup';
+import { checkEmail, checkPassword } from '../utils/checkSignup';
 
 export function Signup() {
   const SIGNUP_URL = `https://pre-onboarding-selection-task.shop/auth/signup`;
