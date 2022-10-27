@@ -1,6 +1,6 @@
 import { instance } from './api';
 
-const TODO_URL = 'https://pre-onboarding-selection-task.shop/todos';
+const TODO_URL = '/todos';
 
 export const getTodos = async ({ setDatas }) => {
   await instance

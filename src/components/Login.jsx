@@ -7,7 +7,7 @@ import useCheck from '../hooks/useCheck';
 import { checkEmail, checkPassword } from '../utils/checkSignup';
 
 export function Login() {
-  const LOGIN_URL = `https://pre-onboarding-selection-task.shop/auth/signin`;
+  const LOGIN_URL = `/auth/signin`;
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

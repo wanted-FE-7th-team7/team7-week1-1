@@ -7,7 +7,7 @@ import { postSignup } from '../apis/signup';
 import { checkEmail, checkPassword } from '../utils/checkSignup';
 
 export function Signup() {
-  const SIGNUP_URL = `https://pre-onboarding-selection-task.shop/auth/signup`;
+  const SIGNUP_URL = `/auth/signup`;
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
