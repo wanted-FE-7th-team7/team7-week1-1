@@ -39,7 +39,7 @@ function TodoList({ datas, setDatas }) {
   return (
     <TodoListContainer>
       <h1>
-        남은 할일 {datas.filter(el => el.isCompleted === false).length} 개
+        남은 할일 {datas.filter(({ isCompleted }) => !isCompleted).length} 개
       </h1>
       {datas.map(({ id, todo, isCompleted, userId }) => (
         <div className="todo-list-area" key={id}>

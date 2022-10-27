@@ -38,12 +38,14 @@ function Signup() {
           setValue={setEmail}
           setIsError={setIsError}
         />
-        {isError === true ? (
+        {isError ? (
           <ContentCheck>중복된 계정입니다.</ContentCheck>
-        ) : isEmail === true ? null : (
-          <ContentCheck>
-            올바른 형식의 이메일을 입력해주세요(@ 필수 포함)
-          </ContentCheck>
+        ) : (
+          !isEmail && (
+            <ContentCheck>
+              올바른 형식의 이메일을 입력해주세요(@ 필수 포함)
+            </ContentCheck>
+          )
         )}
 
         <InputGroup
@@ -52,19 +54,18 @@ function Signup() {
           setValue={setPassword}
           type="password"
         />
-        {isPassword === true ? null : (
+        {!isPassword && (
           <ContentCheck>8자 이상의 비밀번호를 입력해주세요</ContentCheck>
         )}
 
-        {isEmail && isPassword ? (
-          <button type="submit" className="allow-signup">
-            가입하기
-          </button>
-        ) : (
-          <button type="button" className="block-signup">
-            가입하기
-          </button>
-        )}
+        <button
+          type="submit"
+          className={isEmail && isPassword ? 'allow-signup' : 'block-signup'}
+          disabled={!(isEmail && isPassword)}
+        >
+          가입하기
+        </button>
+
         <LoginContainer>
           <div>계정이 있으신가요?</div>
           <div>
