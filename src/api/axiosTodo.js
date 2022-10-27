@@ -1,33 +1,19 @@
-import axios from 'axios';
+import { instance } from './api';
 
 const TODO_URL = 'https://pre-onboarding-selection-task.shop/todos';
-const token = `Bearer ${localStorage.getItem('token')}`;
 
 export const getTodos = async ({ setDatas }) => {
-  await axios
-    .get(TODO_URL, {
-      headers: {
-        Authorization: token,
-      },
-    })
+  await instance
+    .get(TODO_URL)
     .then(res => setDatas(res.data))
     .catch(err => {});
 };
 
 export const postTodo = async ({ todo, setTodo, datas, setDatas }) => {
-  await axios
-    .post(
-      TODO_URL,
-      {
-        todo,
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: token,
-        },
-      }
-    )
+  await instance
+    .post(TODO_URL, {
+      todo,
+    })
     .then(res => {
       setDatas([
         ...datas,
@@ -44,31 +30,18 @@ export const postTodo = async ({ todo, setTodo, datas, setDatas }) => {
 };
 
 export const deleteTodo = async ({ id, setDatas }) => {
-  await axios
-    .delete(`${TODO_URL}/${id}`, {
-      headers: {
-        Authorization: token,
-      },
-    })
+  await instance
+    .delete(`${TODO_URL}/${id}`)
     .then(res => getTodos({ setDatas }))
     .catch(err => {});
 };
 
 export const postTodoCheck = async ({ id, todo, isCompleted, setDatas }) => {
-  await axios
-    .put(
-      `${TODO_URL}/${id}`,
-      {
-        todo,
-        isCompleted: !isCompleted,
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: token,
-        },
-      }
-    )
+  await instance
+    .put(`${TODO_URL}/${id}`, {
+      todo,
+      isCompleted: !isCompleted,
+    })
     .then(res => getTodos({ setDatas }))
     .catch(err => console.error(err));
 };
@@ -88,20 +61,11 @@ export const putModify = async ({
   setModifyTodo,
   setDatas,
 }) => {
-  await axios
-    .put(
-      `${TODO_URL}/${id}`,
-      {
-        todo: modifyTodo,
-        isCompleted,
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: token,
-        },
-      }
-    )
+  await instance
+    .put(`${TODO_URL}/${id}`, {
+      todo: modifyTodo,
+      isCompleted,
+    })
     .then(res => {
       setIsModifying();
       setModifyTodo('');
